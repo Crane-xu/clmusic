@@ -1,0 +1,40 @@
+@-webkit-keyframes flash {
+from,50%,
+to {
+    opacity: 1;
+}
+25%,
+75% {
+    opacity: 0;
+}
+}
+@keyframes flash {
+from,
+50%,
+to {
+    opacity: 1;
+}
+
+25%,
+75% {
+    opacity: 0;
+}
+}
+
+.loadview {
+width: 100%;
+height: 100vh;
+text-align: center;
+line-height: 100vh;
+font-size: 0.5rem;
+position: fixed;
+top: 0;
+left: 0;
+background-color: rgb(255, 244, 244);
+color: #ff3a3a;
+z-index: 11;
+}
+
+.animate__flash {
+animation: flash 0.8s linear infinite;
+}
