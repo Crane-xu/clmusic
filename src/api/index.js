@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let baseUrl = "http://localhost:3000";
+let baseUrl = "http://47.100.131.150:3000";
 
 // 获取轮播图 typew为设备机型 1:安卓 2:iphone 3:ipad
 export function getBanner(type = 0) {
