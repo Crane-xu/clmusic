@@ -6,7 +6,10 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: '网易云音乐'
+    }
   },
   {
     path: '/about',
@@ -19,6 +22,9 @@ const routes = [
   {
     path: '/listview',
     name: 'listview',
+    meta: {
+      title: '歌单'
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -27,6 +33,9 @@ const routes = [
   {
     path: '/searchview',
     name: 'searchview',
+    meta: {
+      title: '搜索'
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -38,14 +47,21 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
-  },{
+    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+    meta: {
+      title: '手机登录'
+    }
+  },
+  {
     path: '/me',
     name: 'me',
-    beforeEnter:(to,from,next)=>{
-      if(!store.state.user.isLogin){
+    meta: {
+      title: '个人主页'
+    },
+    beforeEnter: (to, from, next) => {
+      if (!store.state.user.isLogin) {
         next('/login');
-      }else{
+      } else {
         next();
       }
     },

@@ -32,7 +32,6 @@ export default createStore({
     lyricList(state) {
       if (state.lyric == "") return;
       let arr = state.lyric.split(/\n/igs).map((item, i, arr) => {
-
         let text = item.split("]").pop();
         let min = parseInt(item.split("[").pop());
         let sec = parseInt(item.split(":").pop());
@@ -80,14 +79,13 @@ export default createStore({
     },
     async phoneLogin(content, payload) {
       let result = await phoneLogin(payload.phone, payload.password);
-      console.log(result);
+      // console.log(result);
       // result.data.code  200登录成功 400不是手机号 502密码错误
       if (result.data.code == 400) {
         alert('手机号错误，请重新输入');
       } else if (result.data.code == 502) {
         alert('密码错误，请重新输入');
-      } else
-        if (result.data.code == 200) {
+      } else if (result.data.code == 200) {
           content.state.user.isLogin = true;
           content.state.user.account = result.data.account;
           let _userDetail = await userDetail(result.data.account.id);

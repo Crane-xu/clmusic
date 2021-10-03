@@ -27,7 +27,7 @@ export default {
             let id = route.query.id;
             let result = await getPlayListDetail(id);
             state.playlist = result.data.playlist;
-            console.log(state);
+            // console.log(state);
             store.commit('setPlaylist',state.playlist.tracks);
         });
         return {
