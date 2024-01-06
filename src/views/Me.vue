@@ -1,10 +1,10 @@
 <template>
-  <div class="personPage">
+  <div class="person-page">
     <img
-      class="person_bg"
+      class="person-bg"
       :src="$store.state.user.userDetail.profile.backgroundUrl"
     />
-    <div class="personTop">
+    <div class="person-top">
       <svg class="icon" aria-hidden="true" @click="$router.push('/')">
         <use xlink:href="#icon-arrowLeft"></use>
       </svg>
@@ -15,8 +15,8 @@
         <use xlink:href="#icon-gengduo"></use>
       </svg>
     </div>
-    <div class="personCenter">
-      <div class="centerLeft">
+    <div class="person-center">
+      <div class="center-left">
         <img
           v-if="$store.state.user"
           :src="$store.state.user.userDetail.profile.avatarUrl"
@@ -25,7 +25,7 @@
           {{ $store.state.user.userDetail.profile.signature }}
         </p>
       </div>
-      <div class="centerRight">
+      <div class="center-right">
         <div class="crtop">
           <div class="flw">
             <span class="num">{{
@@ -49,7 +49,7 @@
     </div>
     <div class="content">
       <button class="btn" @click="Logout()">退出登录</button>
-     <!-- <span>主页</span><span>动态</span><span>播客</span> -->
+      <!-- <span>主页</span><span>动态</span><span>播客</span> -->
     </div>
   </div>
 </template>
@@ -57,15 +57,15 @@
 <script>
 import { userLogout } from "@/api/index";
 export default {
-  methods:{
-    async Logout(){
+  methods: {
+    async Logout() {
       let res = await userLogout();
-      if(res){
-        alert('退出登录成功');
+      if (res) {
+        alert("退出登录成功");
         localStorage.clear();
       }
-      window.location.href='http://localhost:8080/';
-    }
+      window.location.href = "http://localhost:8080/";
+    },
   },
   mounted() {
     console.log(this.$store.state.user.userDetail);
@@ -74,11 +74,11 @@ export default {
 </script>
 
 <style lang="less">
-.personPage {
+.person-page {
   width: 7.5rem;
   height: auto;
   padding: 0 0.4rem;
-  .person_bg {
+  .person-bg {
     position: fixed;
     left: 0;
     top: 0;
@@ -86,7 +86,7 @@ export default {
     height: 5.6rem;
     z-index: -1;
   }
-  .personTop {
+  .person-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -103,12 +103,12 @@ export default {
       width: 5rem;
     }
   }
-  .personCenter {
+  .person-center {
     display: flex;
     margin-top: 3rem;
     //   background-color: #fff;
     z-index: 1;
-    .centerLeft {
+    .center-left {
       img {
         width: 2rem;
         height: 2rem;
@@ -119,36 +119,36 @@ export default {
         color: #666;
       }
     }
-    .centerRight {
+    .center-right {
+      display: flex;
+      flex-direction: column;
+      .crtop {
         display: flex;
-        flex-direction:column;
-        .crtop{
-            display: flex;
-            flex: 1;
-            width: 5rem;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 0.7rem;
-            .flw{  
-                display: flex;
-                flex-direction:column;
-                text-align: center;
-                .num{
-                    font-weight: 700;
-                    color:#111;
-                }
-                .text{
-                    color:#666;
-                }
-            }
+        flex: 1;
+        width: 5rem;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 0.7rem;
+        .flw {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          .num {
+            font-weight: 700;
+            color: #111;
+          }
+          .text {
+            color: #666;
+          }
         }
-        .btn{
-            width: 5rem;
-            height: 0.7rem;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 0.7rem;
-        }
+      }
+      .btn {
+        width: 5rem;
+        height: 0.7rem;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 0.7rem;
+      }
     }
   }
   .content {
@@ -157,14 +157,14 @@ export default {
     box-shadow: 0px 18px 60px 124px #fff;
     background-color: #fff;
     height: 8rem;
-    .btn{
-        width: 3rem;
-        height: 0.7rem;
-        color: #d43c33;
-        margin-top: 1rem;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 0.7rem;
+    .btn {
+      width: 3rem;
+      height: 0.7rem;
+      color: #d43c33;
+      margin-top: 1rem;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 0.7rem;
     }
   }
 }

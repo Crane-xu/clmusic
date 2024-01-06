@@ -9,18 +9,18 @@
 
 <script>
 // @ is an alias to /src
-import topNav from "@/components/topNav.vue";
-import swiperCom from "@/components/swiperCom.vue";
-import iconList from "@/components/iconList.vue";
-import musicList from "@/components/musicList.vue";
+import TopNav from "@/components/top-nav.vue";
+import SwiperCom from "@/components/swiper-com.vue";
+import IconList from "@/components/icon-list.vue";
+import MusicList from "@/components/music-list.vue";
 
 export default {
   name: "Home",
   components: {
-    topNav,
-    swiperCom,
-    iconList,
-    musicList,
+    TopNav,
+    SwiperCom,
+    IconList,
+    MusicList,
   },
 };
 </script>

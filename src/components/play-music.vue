@@ -1,10 +1,10 @@
 <template>
-  <div class="playMusic">
+  <div class="play-music">
     <div
       class="bg"
       :style="{ backgroundImage: `url(${playDetail.al.picUrl})` }"
     ></div>
-    <div class="playTop">
+    <div class="play-top">
       <div class="back" @click="$emit('back')">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-arrowLeft"></use>
@@ -22,16 +22,46 @@
         </svg>
       </div>
     </div>
-    <div class="playContent" v-show="!isLyric">
-      <img class="needle" :class="{ndle_active:!paused}" id="needle" src="@\assets\img\needle-ab.png" @click="play"/>
-      <img class="disc" src="@\assets\img\disc.png" @click="isLyric = !isLyric"/>
-      <img class="playImg" :class="{img_active:!paused}" id="playImg" :src="playDetail.al.picUrl" @click="isLyric = !isLyric"/>
+    <div class="play-content" v-show="!isLyric">
+      <img
+        class="needle"
+        :class="{ ndle_active: !paused }"
+        id="needle"
+        src="@\assets\img\needle-ab.png"
+        @click="play"
+      />
+      <img
+        class="disc"
+        src="@\assets\img\disc.png"
+        @click="isLyric = !isLyric"
+      />
+      <img
+        class="play-img"
+        :class="{ img_active: !paused }"
+        id="play-img"
+        :src="playDetail.al.picUrl"
+        @click="isLyric = !isLyric"
+      />
     </div>
-    <div class="playLyric" v-show="isLyric" ref="playLyric" @click="isLyric = !isLyric">
-      <p :class="{plrc_active:(currentTime*1000>=item.pre&&currentTime*1000<item.time)}" v-for="(item,i) in $store.getters.lyricList" :key="i">{{ item.lyric }}</p>
+    <div
+      class="play-lyric"
+      v-show="isLyric"
+      ref="playLyric"
+      @click="isLyric = !isLyric"
+    >
+      <p
+        :class="{
+          plrc_active:
+            currentTime * 1000 >= item.pre && currentTime * 1000 < item.time,
+        }"
+        v-for="(item, i) in $store.getters.lyricList"
+        :key="i"
+      >
+        {{ item.lyric }}
+      </p>
     </div>
     <div class="progress"></div>
-    <div class="playFooter"> 
+    <div class="play-footer">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-xunhuan"></use>
       </svg>
@@ -61,37 +91,37 @@ import { mapState } from "vuex";
 
 export default {
   props: ["playDetail", "paused", "play"],
-  data(){
-    return{
-      isLyric:false,
-    }
+  data() {
+    return {
+      isLyric: false,
+    };
   },
-  computed:{
-    ...mapState(['lyric','currentTime','playlist','playCurrentIndex']),
+  computed: {
+    ...mapState(["lyric", "currentTime", "playlist", "playCurrentIndex"]),
   },
   watch: {
-    currentTime:function(){
-      let p = document.querySelector('.plrc_active');
-      if(!p)return;
+    currentTime: function () {
+      let p = document.querySelector(".plrc_active");
+      if (!p) return;
       this.$refs.playLyric.scrollTop = p.offsetTop;
-    }
+    },
   },
-  methods:{
-    goPlay(num){
-      let index = this.playCurrentIndex+num;
-      if(index<0){
-        index = this.playlist.length-1;
-      }else if(index==this.playlist.length){
-        index=0;
+  methods: {
+    goPlay(num) {
+      let index = this.playCurrentIndex + num;
+      if (index < 0) {
+        index = this.playlist.length - 1;
+      } else if (index == this.playlist.length) {
+        index = 0;
       }
-      this.$store.commit('setPlayIndex',index);
-    }
+      this.$store.commit("setPlayIndex", index);
+    },
   },
 };
 </script>
 
 <style lang="less">
-.playMusic {
+.play-music {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -109,7 +139,7 @@ export default {
     background-position: center;
     filter: blur(60px);
   }
-  .playTop {
+  .play-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,7 +159,7 @@ export default {
       width: 4rem;
     }
   }
-  .playContent {
+  .play-content {
     position: absolute;
     width: 7.5rem;
     height: 7.5rem;
@@ -156,7 +186,7 @@ export default {
       left: calc(50% - 2.75rem);
       top: 2.2rem;
     }
-    .playImg {
+    .play-img {
       width: 3.5rem;
       height: 3.5rem;
       border-radius: 2.5rem;
@@ -203,7 +233,7 @@ export default {
       }
     }
   }
-  .playLyric{
+  .play-lyric {
     position: absolute;
     width: 7.5rem;
     height: 8rem;
@@ -213,15 +243,15 @@ export default {
     overflow: scroll;
     text-align: center;
     padding: 0.2rem 0;
-    .plrc_active{
+    .plrc_active {
       color: #dff;
     }
-    p{
+    p {
       height: 0.4rem;
       margin-top: 0.3rem;
     }
   }
-  .playFooter {
+  .play-footer {
     width: 7.5rem;
     height: 1.5rem;
     position: absolute;

@@ -1,14 +1,14 @@
 <template>
-  <div class="musicList">
-    <div class="musicList-top">
+  <div class="music-list">
+    <div class="music-list-top">
       <div class="title">发现好歌单</div>
       <div class="more">查看更多</div>
     </div>
     <div class="mlist">
-      <div class="swiper-container" id="musicSwiper">
+      <div class="swiper-container" id="music-swiper">
         <div class="swiper-wrapper">
           <router-link
-            :to="{path:'/listview',query:{id:item.id}}"
+            :to="{ path: '/listview', query: { id: item.id } }"
             class="swiper-slide"
             v-for="(item, i) in state.musicList"
             :key="i"
@@ -55,7 +55,7 @@ export default {
       state.musicList = result.data.result;
     });
     onUpdated(() => {
-      var swiper = new Swiper("#musicSwiper", {
+      var swiper = new Swiper("#music-swiper", {
         slidesPerView: 3,
         spaceBetween: 10,
       });
@@ -91,7 +91,7 @@ export default {
     this.musicList = result.data.result;
   },
   updated() {
-    var swiper = new Swiper("#musicSwiper", {
+    var swiper = new Swiper("#music-swiper", {
       slidesPerView: 3,
       spaceBetween: 10,
     });
@@ -100,10 +100,10 @@ export default {
 </script>
 
 <style lang="less">
-.musicList {
+.music-list {
   width: 7.5rem;
   padding: 0 0.4rem;
-  .musicList-top {
+  .music-list-top {
     display: flex;
     justify-content: space-between;
     height: 1rem;

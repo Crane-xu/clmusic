@@ -33,9 +33,9 @@ export default createStore({
       if (state.lyric == "") return;
       let arr = state.lyric.split(/\n/igs).map((item, i, arr) => {
         let text = item.split("]").pop();
-        let min = parseInt(item.split("[").pop());
-        let sec = parseInt(item.split(":").pop());
-        let mill = parseInt(item.split(".").pop());
+        let min = item.split("[").pop() | 0;
+        let sec = item.split(":").pop() | 0;
+        let mill = item.split(".").pop() | 0;
 
         return {
           min, sec, mill,
@@ -86,13 +86,13 @@ export default createStore({
       } else if (result.data.code == 502) {
         alert('密码错误，请重新输入');
       } else if (result.data.code == 200) {
-          content.state.user.isLogin = true;
-          content.state.user.account = result.data.account;
-          let _userDetail = await userDetail(result.data.account.id);
-          content.state.user.userDetail = _userDetail.data;
-          localStorage.userData = JSON.stringify(content.state.user);
-          content.commit('setUser', content.state.user);
-        }
+        content.state.user.isLogin = true;
+        content.state.user.account = result.data.account;
+        let _userDetail = await userDetail(result.data.account.id);
+        content.state.user.userDetail = _userDetail.data;
+        localStorage.userData = JSON.stringify(content.state.user);
+        content.commit('setUser', content.state.user);
+      }
       return result;
     },
   },

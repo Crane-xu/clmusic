@@ -7,68 +7,35 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: {
-      title: '网易云音乐'
-    }
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    meta: { title: '网易云音乐' }
   },
   {
     path: '/listview',
     name: 'listview',
-    meta: {
-      title: '歌单'
-    },
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ListView.vue')
+    meta: { title: '歌单' },
+    component: () => import('../views/ListView.vue')
   },
   {
     path: '/searchview',
     name: 'searchview',
-    meta: {
-      title: '搜索'
-    },
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Search.vue')
+    meta: { title: '搜索' },
+    component: () => import('../views/Search.vue')
   },
   {
     path: '/login',
     name: 'login',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
-    meta: {
-      title: '手机登录'
-    }
+    component: () => import('../views/Login.vue'),
+    meta: { title: '手机登录' }
   },
   {
     path: '/me',
     name: 'me',
-    meta: {
-      title: '个人主页'
-    },
+    meta: { title: '个人主页' },
     beforeEnter: (to, from, next) => {
-      if (!store.state.user.isLogin) {
-        next('/login');
-      } else {
-        next();
-      }
+      if (!store.state.user.isLogin) next('/login');
+      else next();
     },
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Me.vue')
+    component: () => import('../views/Me.vue')
   }
 ]
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="playlist">
-    <div class="playlist-top">
+  <div class="play-list">
+    <div class="play-list-top">
       <div class="left">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-bofang"></use>
@@ -14,7 +14,7 @@
     </div>
     <div class="list">
       <div
-        class="playItem"
+        class="play-item"
         v-for="(item, i) in playlist.tracks"
         :key="i"
         @click="setPlayIndex(i)"
@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="less">
-.playlist {
+.play-list {
   width: 7.5rem;
   padding: 0 0.4rem;
   background-color: #fff;
@@ -75,7 +75,7 @@ export default {
   border-top-right-radius: 0.3rem;
   margin-top: 0.3rem;
   padding-bottom: 1.3rem;
-  .playlist-top {
+  .play-list-top {
     display: flex;
     justify-content: space-between;
     height: 0.8rem;
@@ -110,7 +110,7 @@ export default {
   }
   .list {
     margin-top: 0.2rem;
-    .playItem {
+    .play-item {
       position: relative;
       display: flex;
       justify-content: space-between;

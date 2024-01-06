@@ -1,17 +1,17 @@
 <template>
-  <div class="topNav">
-    <div class="topLeft">
+  <div class="top-nav">
+    <div class="top-left">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-danlieliebiao"></use>
       </svg>
     </div>
-    <div class="topCenter">
-      <span class="navBtn" @click="$router.push('/me')">我的</span>
-      <span class="navBtn active">发现</span>
-      <span class="navBtn">云村</span>
-      <span class="navBtn">视频</span>
+    <div class="top-center">
+      <span class="nav-btn" @click="$router.push('/me')">我的</span>
+      <span class="nav-btn active">发现</span>
+      <span class="nav-btn">云村</span>
+      <span class="nav-btn">视频</span>
     </div>
-    <div class="topRight" @click="$router.push('/searchview')">
+    <div class="top-right" @click="$router.push('/searchview')">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-sousuoxiao"></use>
       </svg>
@@ -20,7 +20,7 @@
 </template>
 
 <style lang="less">
-.topNav {
+.top-nav {
   width: 7.5rem;
   height: 1rem;
   display: flex;
@@ -31,7 +31,7 @@
     width: 0.5rem;
     height: 0.5rem;
   }
-  .topCenter {
+  .top-center {
     width: 5rem;
     display: flex;
     justify-content: space-around;

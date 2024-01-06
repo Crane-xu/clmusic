@@ -11,7 +11,7 @@
       <div class="login-inp"><a href="#" @click="loginEvent">立即登录</a></div>
     </div>
     <div class="login-txt">
-      <a href="#">立即注册</a>|<a href="#">忘记密码？</a>|<a href="http://localhost:8080/">返回首页</a>
+      <a href="#">立即注册</a>|<a href="#">忘记密码？</a>|<a @click="$router.push('/')">返回首页</a>
     </div>
   </div>
 </template>

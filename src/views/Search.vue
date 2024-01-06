@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import searchTop from "@/components/searchTop.vue";
+import SearchTop from "@/components/search-top.vue";
 export default {
-  components: { searchTop },};
+  components: { SearchTop },
+};
 </script>

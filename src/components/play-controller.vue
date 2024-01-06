@@ -1,5 +1,5 @@
 <template>
-  <div class="playController">
+  <div class="play-controller">
     <div v-show="!show" class="left" @click="show = !show">
       <img :src="playlist[playCurrentIndex].al.picUrl" />
       <div class="content">
@@ -35,7 +35,7 @@
 
 <script>
 import { mapState } from "vuex";
-import playMusic from "@/components/playMusic.vue";
+import PlayMusic from "@/components/play-music.vue";
 
 export default {
   data() {
@@ -71,20 +71,20 @@ export default {
       }
     },
     UpdateTime() {
-     if(this.$refs.audio.currentTime===null)return;
-     this.$store.state.id = setInterval(() => {
+      if (this.$refs.audio.currentTime === null) return;
+      this.$store.state.id = setInterval(() => {
         this.$store.commit("setCurrentTime", this.$refs.audio.currentTime);
-     }, 1500);
+      }, 1500);
     },
   },
   components: {
-    playMusic,
+    PlayMusic,
   },
 };
 </script>
 
 <style lang="less">
-.playController {
+.play-controller {
   width: 7.5rem;
   height: 1.2rem;
   position: fixed;

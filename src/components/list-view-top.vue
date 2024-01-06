@@ -1,7 +1,7 @@
 <template>
-  <div class="listViewTop">
+  <div class="list-view-top">
     <img class="bg" :src="playlist.coverImgUrl" />
-    <div class="listViewTopNav">
+    <div class="list-view-top-nav">
       <div class="left back" @click="$router.go(-1)">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-arrowLeft"></use>
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="content">
-    <div class="contentLeft">
+    <div class="content-left">
       <img :src="playlist.coverImgUrl" />
       <div class="count">
         <span
@@ -30,7 +30,7 @@
         <span>{{ changeValue(playlist.playCount) }}</span>
       </div>
     </div>
-    <div class="contentRight">
+    <div class="content-right">
       <h3>{{ playlist.name }}</h3>
       <div class="author">
         <img :src="playlist.creator.avatarUrl" class="header" />
@@ -41,26 +41,26 @@
       </div>
     </div>
   </div>
-  <div class="iconList">
-    <div class="iconItem">
+  <div class="icon-list">
+    <div class="icon-item">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-pinglun"></use>
       </svg>
       <span>{{ playlist.commentCount }}</span>
     </div>
-    <div class="iconItem">
+    <div class="icon-item">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-fenxiang"></use>
       </svg>
       <span>{{ playlist.shareCount }}</span>
     </div>
-    <div class="iconItem">
+    <div class="icon-item">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-xiazai"></use>
       </svg>
       <span>下载</span>
     </div>
-    <div class="iconItem">
+    <div class="icon-item">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-show_duoxuan"></use>
       </svg>
@@ -91,7 +91,7 @@ export default {
 
 
 <style lang="less">
-.listViewTop {
+.list-view-top {
   width: 7.5rem;
   padding: 0 0.4rem;
   .bg {
@@ -103,7 +103,7 @@ export default {
     z-index: -1;
     filter: blur(40px);
   }
-  .listViewTopNav {
+  .list-view-top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -137,7 +137,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 0.4rem;
-  .contentLeft {
+  .content-left {
     position: relative;
     img {
       width: 2.8rem;
@@ -158,7 +158,7 @@ export default {
       }
     }
   }
-  .contentRight {
+  .content-right {
     width: 3.5rem;
     h3 {
       font-size: 0.4rem;
@@ -190,10 +190,10 @@ export default {
     }
   }
 }
-.iconList {
+.icon-list {
   display: flex;
   justify-content: space-around;
-  .iconItem {
+  .icon-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -203,7 +203,7 @@ export default {
       fill: #fff;
     }
     span {
-        color: #fff;
+      color: #fff;
       font-size: 0.3rem;
       padding-top: 0.3rem;
     }

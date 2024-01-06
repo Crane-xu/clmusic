@@ -1,6 +1,6 @@
 <template>
-  <div class="searchTop">
-    <div class="searchTopNav">
+  <div class="search-top">
+    <div class="search-top-nav">
       <div class="left" @click="$router.go(-1)">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-arrowLeft"></use>
@@ -16,15 +16,15 @@
       </div>
     </div>
     <div class="history" v-show="searchSongs.length==0">
-      <div class="historyLeft">历史</div>
-      <div class="historyRight">
-        <div @click="historySearch(item)" class="keywordItem" v-for="(item, i) in keywordList" :key="i">
+      <div class="history-left">历史</div>
+      <div class="history-right">
+        <div @click="historySearch(item)" class="keyword-item" v-for="(item, i) in keywordList" :key="i">
           {{ item }}
         </div>
       </div>
     </div>
-    <div class="playlist" v-show="searchSongs.length!==0">
-      <div class="playlist-top">
+    <div class="play-list" v-show="searchSongs.length!==0">
+      <div class="play-list-top">
         <div class="left">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-bofang"></use>
@@ -37,7 +37,7 @@
       </div>
       <div class="list">
         <div
-          class="playItem"
+          class="play-item"
           v-for="(item, i) in searchSongs"
           :key="i"
           @click="setPlay(item,i)"
@@ -120,10 +120,10 @@ export default {
 
 
 <style lang="less">
-.searchTop {
+.search-top {
   width: 7.5rem;
   padding: 0 0.4rem;
-  .searchTopNav {
+  .search-top-nav {
     display: flex;
     width: 100%;
     height: 1.2rem;
@@ -146,19 +146,19 @@ export default {
   }
   .history {
     display: flex;
-    .historyLeft {
+    .history-left {
       width: 1.2rem;
       height: 0.6rem;
       font-weight: 900;
       margin: 0.2rem 0;
       line-height: 0.6rem;
     }
-    .historyRight {
+    .history-right {
       color: #666;
       display: flex;
       flex-wrap: wrap;
       flex: 1;
-      .keywordItem {
+      .keyword-item {
         background-color: #ddd;
         height: 0.6rem;
         padding: 0 0.2rem;
@@ -168,7 +168,7 @@ export default {
       }
     }
   }
-  .playlist {
+  .play-list {
     width: 100%;
     // padding: 0 0.4rem;
     background-color: #fff;
@@ -176,7 +176,7 @@ export default {
     border-top-right-radius: 0.3rem;
     margin-top: 0.3rem;
     padding-bottom: 1.3rem;
-    .playlist-top {
+    .play-list-top {
       display: flex;
       justify-content: space-between;
       height: 0.8rem;
@@ -203,7 +203,7 @@ export default {
     }
     .list {
       margin-top: 0.2rem;
-      .playItem {
+      .play-item {
         position: relative;
         display: flex;
         justify-content: space-between;
